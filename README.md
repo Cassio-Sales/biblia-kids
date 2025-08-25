@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📖 Bíblia Kids
 
-## Getting Started
+Um aplicativo interativo voltado para crianças, com histórias bíblicas ilustradas e narradas.  
+O objetivo é tornar o aprendizado da Bíblia mais acessível, divertido e educativo para os pequenos.  
 
-First, run the development server:
+## 🚀 Tecnologias
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Next.js](https://nextjs.org/) – Framework React para frontend moderno  
+- [TypeScript](https://www.typescriptlang.org/) – Tipagem estática para maior segurança  
+- [Tailwind CSS](https://tailwindcss.com/) – Estilização rápida e responsiva  
+- [Vercel](https://vercel.com/) – Deploy e hospedagem (planejado)  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Objetivo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Disponibilizar histórias bíblicas curtas em **vídeo com narração**.  
+- Interface colorida e intuitiva, pensada especialmente para crianças.  
+- Facilitar a adição de novas histórias ao longo do tempo, via API.  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📂 Estrutura inicial
+biblia-kids/
+├── public/ # Arquivos públicos (imagens, ícones, etc.)
+├── src/ # Código principal
+│ ├── components/ # Componentes reutilizáveis
+│ ├── pages/ # Páginas do app (Next.js)
+│ ├── styles/ # Estilos globais
+│ └── ...
+├── package.json
+├── tsconfig.json
+├── tailwind.config.js
+└── README.md
 
-## Learn More
+==============================================================================
+# 📖 Bible Kids
 
-To learn more about Next.js, take a look at the following resources:
+An interactive application designed for children, featuring illustrated and narrated Bible stories.  
+The goal is to make learning the Bible more accessible, fun, and educational for kids.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Technologies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/) – React framework for modern frontend development  
+- [TypeScript](https://www.typescriptlang.org/) – Static typing for safer code  
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS for styling and responsiveness  
+- [Vercel](https://vercel.com/) – Deployment and hosting (planned)  
 
-## Deploy on Vercel
+## 🎯 Purpose
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Provide short Bible stories in **video format with narration**.  
+- Colorful and intuitive interface, designed specifically for children.  
+- Make it easy to add new stories over time via an API.  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📂 Project Structure
+
