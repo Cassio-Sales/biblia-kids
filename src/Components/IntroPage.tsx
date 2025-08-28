@@ -13,9 +13,9 @@ const IntroPage = () => {
       />
 
       {/* Botão por cima do vídeo */}
-      <div className="absolute bottom-16 w-full flex justify-center">
-        <button className="bg-amber-900 text-white px-6 py-3 rounded-full shadow-lg hover:bg-amber-800 transition">
-          Entrar
+      <div className="absolute bottom-2 w-full flex justify-center">
+        <button className="bg-amber-500 text-white px-30 py-3 rounded-full shadow-lg hover:bg-amber-600 transition">
+          <span className=" bold ">ENTRAR</span>
         </button>
       </div>
     </div>
