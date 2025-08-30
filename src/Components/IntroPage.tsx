@@ -21,9 +21,9 @@ const IntroPage = () => {
       {/* Botão por cima do vídeo */}
       <div className="absolute bottom-3 w-full flex justify-center">
         <button
-          className={`${baloo.className} bg-[#40A099] text-white px-12 py-4 rounded-full shadow-lg hover:bg-amber-600 transition`}
+          className={`${baloo.className} bg-[#40A099] text-white px-12 py-2 rounded-full  shadow-lg hover:bg-amber-600 transition`}
         >
-          <span className="text-3xl font-bold tracking-wide">ENTRAR</span>
+          <span className="text-3xl font-bold tracking-wide ">ENTRAR</span>
         </button>
       </div>
     </div>
