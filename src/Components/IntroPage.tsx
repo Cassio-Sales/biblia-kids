@@ -1,3 +1,9 @@
+import { Baloo_2 } from 'next/font/google'
+
+const baloo = Baloo_2({
+  subsets: ['latin'],
+  weight: ['400', '500', '700']
+})
 
 const IntroPage = () => {
   return (
@@ -13,9 +19,11 @@ const IntroPage = () => {
       />
 
       {/* Botão por cima do vídeo */}
-      <div className="absolute bottom-4 w-full flex justify-center">
-        <button className="bg-amber-500 text-white px-30 py-3 rounded-full shadow-lg hover:bg-amber-600 transition">
-          <span>ENTRAR</span>
+      <div className="absolute bottom-3 w-full flex justify-center">
+        <button
+          className={`${baloo.className} bg-[#40A099] text-white px-12 py-4 rounded-full shadow-lg hover:bg-amber-600 transition`}
+        >
+          <span className="text-3xl font-bold tracking-wide">ENTRAR</span>
         </button>
       </div>
     </div>

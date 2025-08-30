@@ -1,6 +1,11 @@
 import './globals.css'
-
+import { Baloo_2 } from 'next/font/google'
 import type { Metadata } from 'next'
+
+const baloo = Baloo_2({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'] // pode ajustar pesos
+})
 
 export const metadata: Metadata = {
   title: 'Bíblia Kids',
@@ -21,7 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      {/* aplica a fonte globalmente */}
+      <body className={baloo.className}>{children}</body>
     </html>
   )
 }
