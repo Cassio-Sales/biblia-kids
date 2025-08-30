@@ -19,7 +19,7 @@ const IntroPage = () => {
       />
 
       {/* Botão por cima do vídeo */}
-      <div className="absolute bottom-3 w-full flex justify-center">
+      <div className="absolute bottom-5 w-full flex justify-center">
         <button
           className={`${baloo.className} bg-[#40A099] text-white px-12 py-2 rounded-full  shadow-lg hover:bg-amber-600 transition`}
         >
