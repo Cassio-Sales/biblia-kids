@@ -16,7 +16,7 @@ const IntroPage = () => {
   }
 
   return (
-    // 🔹 Aqui ficou branco só na IntroPage
+    
     <div className="relative w-full min-h-[100dvh] overflow-hidden bg-white">
       {/* Vídeo de fundo */}
       <video
@@ -29,7 +29,7 @@ const IntroPage = () => {
       />
 
       {/* Botão por cima do vídeo */}
-      <div className="absolute bottom-5 w-full flex justify-center">
+      <div className="absolute bottom-9 w-full flex justify-center">
         <button
           onClick={handleStart}
           className={`${baloo.className} bg-[#40A099] text-white px-12 py-2 rounded-full shadow-lg hover:bg-amber-600 transition`}
