@@ -1,4 +1,7 @@
+"use client";
+
 import { Baloo_2 } from 'next/font/google'
+import { useRouter } from 'next/navigation'
 
 const baloo = Baloo_2({
   subsets: ['latin'],
@@ -6,6 +9,14 @@ const baloo = Baloo_2({
 })
 
 const IntroPage = () => {
+  
+  const router = useRouter();
+  
+  const handleStart = () => {
+    router.push('/home')
+  };
+
+
   return (
     <div className="relative w-full min-h-[100dvh] overflow-hidden bg-black">
       {/* Vídeo de fundo */}
@@ -21,7 +32,7 @@ const IntroPage = () => {
       {/* Botão por cima do vídeo */}
       <div className="absolute bottom-5 w-full flex justify-center">
         <button
-          className={`${baloo.className} bg-[#40A099] text-white px-12 py-2 rounded-full  shadow-lg hover:bg-amber-600 transition`}
+          className={`${baloo.className} bg-[#40A099] text-white px-12 py-2 rounded-full  shadow-lg hover:bg-amber-600 transition`} onClick={handleStart}
         >
           <span className="text-3xl font-bold tracking-wide ">ENTRAR</span>
         </button>
