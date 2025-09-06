@@ -16,8 +16,8 @@ const IntroPage = () => {
   }
 
   return (
-    // 🔹 Aqui o fundo preto está aplicado só na IntroPage
-    <div className="relative w-full min-h-[100dvh] overflow-hidden bg-black">
+    // 🔹 Aqui ficou branco só na IntroPage
+    <div className="relative w-full min-h-[100dvh] overflow-hidden bg-white">
       {/* Vídeo de fundo */}
       <video
         src="/assets/videos/intro.mp4"
