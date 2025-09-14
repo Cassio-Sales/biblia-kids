@@ -12,17 +12,15 @@ const baloo = Baloo_2({
 const IntroPage = () => {
   const router = useRouter()
 
-  const handleStart = () => {
-    router.push('/home')
-  }
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push('/home');
       
-    }, 4000);
+    }, 3000);
     return () => clearTimeout(timer);
-  },[]);
+  },[router]);
 
   return (
     <div className="relative w-full min-h-[100dvh] overflow-hidden bg-white">
