@@ -10,7 +10,7 @@ const Hero = () => {
       <div className="w-full max-w-xs sm:max-w-sm flex flex-col items-center">
         {/* Texto "Bem Vindo" com efeito rápido */}
         <TextGenerateEffect
-          className="text-center text-2xl sm:text-3xl font-bold mb-4 text-[#D97706]"
+          className="text-center text-5xl sm:text-3xl font-bold mb-4 text-[#D97706]"
           words="Bem-Vindo!"
         />
 
@@ -18,11 +18,11 @@ const Hero = () => {
         <TypewriterEffect
           words={[
             {
-              text: 'Deixem vir a mim as crianças, e não as impeçam; pois o reino de Deus pertence aos que são semelhantes a elas. — Marcos 10:14',
+              text: 'Deixem vir a mim as crianças, e não as impeçam, pois o reino de Deus pertence aos que são semelhantes a elas. — Marcos 10:14',
               className: 'text-[#40A099] font-bold'
             }
           ]}
-          className="text-center text-sm sm:text-base"
+          className="text-center text-sm sm:text-base text-2xl sm:text-3xl"
         />
       </div>
     </section>
