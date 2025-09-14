@@ -23,8 +23,9 @@ export default function Page() {
   }, [router])
 
   return (
-    <div className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white">
       <Home />
-    </div>
+      
+    </main>
   )
 }

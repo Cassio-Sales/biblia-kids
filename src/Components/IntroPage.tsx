@@ -18,7 +18,7 @@ const IntroPage = () => {
     const timer = setTimeout(() => {
       router.push('/home');
       
-    }, 3000);
+    }, 3200);
     return () => clearTimeout(timer);
   },[router]);
 
