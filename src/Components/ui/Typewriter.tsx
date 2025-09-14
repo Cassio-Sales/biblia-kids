@@ -1,41 +1,92 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import { cn } from '@lib/utils'
+import { motion, stagger, useAnimate, useInView } from 'framer-motion'
+import { useEffect } from 'react'
 
-type TypewriterEffectProps = {
+interface Word {
   text: string
   className?: string
-  speed?: number
 }
 
-export const TypewriterEffect = ({
-  text,
-  className = '',
-  speed = 50
-}: TypewriterEffectProps) => {
-  const [displayedText, setDisplayedText] = useState('')
+interface TypewriterProps {
+  words: Word[]
+  className?: string
+  cursorClassName?: string
+  startDelay?: number
+  charDelay?: number
+}
+
+export const TypewriterEffect: React.FC<TypewriterProps> = ({
+  words,
+  className,
+  cursorClassName,
+  startDelay = 0.5,
+  charDelay = 0.06
+}) => {
+  // transforma palavras em array de letras
+  const wordsArray = words.map(word => ({
+    ...word,
+    text: word.text.split('')
+  }))
+
+  const [scope, animate] = useAnimate()
+  const isInView = useInView(scope)
 
   useEffect(() => {
-    if (!text) return
+    if (isInView) {
+      animate(
+        'span.char',
+        { opacity: 1 },
+        {
+          duration: 0.3,
+          delay: stagger(charDelay, { startDelay }),
+          ease: 'easeInOut'
+        }
+      )
+    }
+  }, [isInView, charDelay, startDelay])
 
-    setDisplayedText('') // reinicia sempre que mudar o texto
-    let index = 0
-
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setDisplayedText(prev => prev + text.charAt(index))
-        index++
-      } else {
-        clearInterval(interval)
-      }
-    }, speed)
-
-    return () => clearInterval(interval)
-  }, [text, speed])
+  const renderWords = () => (
+    <motion.div ref={scope} className="inline">
+      {wordsArray.map((word, idx) => (
+        <span key={`word-${idx}`} className="inline-block">
+          {word.text.map((char, index) => (
+            <motion.span
+              initial={{ opacity: 0 }}
+              key={`char-${index}`}
+              className={cn('char inline', word.className)}
+            >
+              {char}
+            </motion.span>
+          ))}
+          &nbsp; {/* garante espaço entre palavras */}
+        </span>
+      ))}
+    </motion.div>
+  )
 
   return (
-    <p className={`font-bold leading-snug tracking-wide ${className}`}>
-      {displayedText}
-    </p>
+    <div
+      className={cn(
+        'text-base sm:text-xl md:text-3xl lg:text-5xl font-bold text-center',
+        className
+      )}
+    >
+      {renderWords()}
+      <motion.span
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 0.8,
+          repeat: Infinity,
+          repeatType: 'reverse'
+        }}
+        className={cn(
+          'inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-[#40A099]',
+          cursorClassName
+        )}
+      ></motion.span>
+    </div>
   )
 }
