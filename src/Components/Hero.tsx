@@ -1,12 +1,24 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
+
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import { TypewriterEffect } from './ui/Typewriter'
 
 const Hero = () => {
   return (
     <section className="flex flex-col items-center justify-center py-10 px-4 sm:py-16 sm:px-6">
+      <div className=" relative w-full ">
+        <Image
+          src="/assets/images/homeimg1.png" // caminho da imagem na pasta public
+          alt="Crianca Orando"
+          width={300} // largura desejada
+          height={200} // altura desejada
+          className="rounded-lg"
+        />
+      </div>
+
       <div className="w-full max-w-xs sm:max-w-sm flex flex-col items-center">
         {/* Texto "Bem Vindo" com efeito rápido */}
         <TextGenerateEffect
