@@ -9,13 +9,14 @@ import { TypewriterEffect } from './ui/Typewriter'
 const Hero = () => {
   return (
     <section className="flex flex-col items-center justify-center py-10 px-4 sm:py-16 sm:px-6">
-      <div className=" relative w-full ">
+      <div className="w-full">
         <Image
-          src="/assets/images/homeimg1.png" // caminho da imagem na pasta public
+          src="/assets/images/homeimg1.png"
           alt="Crianca Orando"
-          width={300} // largura desejada
-          height={200} // altura desejada
-          className="rounded-lg"
+          width={1200} // valor de referência
+          height={600} // proporção da imagem
+          className="w-full h-auto object-contain"
+          priority
         />
       </div>
 
