@@ -9,15 +9,14 @@ import { TypewriterEffect } from './ui/Typewriter'
 const Hero = () => {
   return (
     <section className="w-full flex flex-col items-center">
-      {/* Imagem ocupa largura total no mobile */}
-      <div className="w-full">
+      {/* Container corta 5% do topo da imagem */}
+      <div className="relative w-full h-[70vh] overflow-hidden">
         <Image
           src="/assets/images/homeimg1.png"
           alt="Crianca Orando"
-          width={800} // base menor, já focado em mobile
-          height={450}
+          fill
           priority
-          className="w-full h-auto"
+          className="object-cover w-full h-full -translate-y-[2%]"
         />
       </div>
 
