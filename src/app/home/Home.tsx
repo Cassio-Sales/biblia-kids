@@ -3,7 +3,7 @@ import Hero from "../../Components/Hero"
 
 const Home = () => {
   return (
-    <div className="w-full min-h-[100dvh] max-w-md mx-auto flex flex-col items-center">
+    <div className="w-full min-h-[100dvh] flex flex-col bg-white">
       <Hero />
       <CardsSection />
     </div>
