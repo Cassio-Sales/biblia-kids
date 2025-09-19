@@ -5,8 +5,16 @@ import Image from 'next/image'
 
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import { TypewriterEffect } from './ui/Typewriter'
+import { Baloo_2 } from 'next/font/google'
+
+const baloo = Baloo_2({ subsets: ['latin'], weight: ['700'] })
 
 const Hero = () => {
+  const handleStart = () => {
+    console.log('Entrar clicado')
+    // aqui você pode redirecionar ou iniciar a navegação
+  }
+
   return (
     <section className="w-full flex flex-col items-center">
       {/* Container corta 5% do topo da imagem */}
@@ -26,6 +34,18 @@ const Hero = () => {
           className="text-center text-6xl font-bold mb-4 text-[#D97706]"
           words="Bem-Vindo!"
         />
+
+        {/* Botão logo abaixo do Bem-Vindo */}
+        <div className="my-6">
+          <button
+            onClick={handleStart}
+            className={`${baloo.className} bg-[#40A099] text-white px-10 py-2 rounded-full shadow-lg hover:bg-amber-600 transition`}
+          >
+            <span className="text-3xl font-bold tracking-wide ">
+              COMEÇAR LEITURA
+            </span>
+          </button>
+        </div>
 
         <TypewriterEffect
           words={[
