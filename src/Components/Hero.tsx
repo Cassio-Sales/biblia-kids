@@ -23,7 +23,7 @@ const Hero = () => {
       {/* Conteúdo abaixo da imagem */}
       <div className="px-4 py-6 flex flex-col items-center">
         <TextGenerateEffect
-          className="text-center text-4xl font-bold mb-4 text-[#D97706]"
+          className="text-center text-6xl font-bold mb-4 text-[#D97706]"
           words="Bem-Vindo!"
         />
 
@@ -34,7 +34,7 @@ const Hero = () => {
               className: 'text-[#40A099] font-bold'
             }
           ]}
-          className="text-center text-base"
+          className="text-center text-2xl"
         />
       </div>
     </section>
