@@ -21,8 +21,8 @@ export const TypewriterEffect: React.FC<TypewriterProps> = ({
   words,
   className,
   cursorClassName,
-  startDelay = 0.5,
-  charDelay = 0.06
+  startDelay = 0.2,
+  charDelay = 0.03
 }) => {
   // transforma palavras em array de letras
   const wordsArray = words.map(word => ({
