@@ -39,9 +39,9 @@ const Hero = () => {
         <div className="my-6">
           <button
             onClick={handleStart}
-            className={`${baloo.className} bg-[#40A099] text-white px-10 py-2 rounded-full shadow-lg hover:bg-amber-600 transition`}
+            className={`${baloo.className} bg-[#40A099] text-white px-3 py-2 rounded-full shadow-lg hover:bg-amber-600 transition`}
           >
-            <span className="text-3xl font-bold tracking-wide ">
+            <span className="text-2xl font-bold tracking-wide ">
               COMEÇAR LEITURA
             </span>
           </button>
