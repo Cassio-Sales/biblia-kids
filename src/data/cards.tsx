@@ -10,7 +10,7 @@ export const cards = [
         style={{ width: '100%', height: '300px' }}
       >
         <Image
-          src="/assets/images/noe2.png"
+          src="/assets/images/Noe.png"
           alt="História de Noé"
           width={400}
           height={300}
@@ -49,7 +49,7 @@ export const cards = [
         style={{ width: '100%', height: '300px' }}
       >
         <Image
-          src="/assets/images/jogos.png"
+          src="/assets/images/Jogos.png"
           alt="Jogos Bíblicos"
           width={400}
           height={300}
