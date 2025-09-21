@@ -5,15 +5,12 @@ export const cards = [
     title: 'Histórias',
     description: 'Explore as histórias bíblicas interativas.',
     header: (
-      <div
-        className="overflow-hidden rounded-md"
-        style={{ width: '100%', height: '300px' }}
-      >
+      <div className="aspect-square w-full overflow-hidden rounded-md">
         <Image
-          src="/assets/images/Noe.png"
+          src="/assets/images/noe.png"
           alt="História de Noé"
           width={400}
-          height={300}
+          height={400}
           className="w-full h-full object-fill rounded-md"
         />
       </div>
@@ -24,10 +21,7 @@ export const cards = [
     title: 'Versículo do Dia',
     description: 'Receba uma palavra inspiradora diariamente.',
     header: (
-      <div
-        className="overflow-hidden rounded-md"
-        style={{ width: '100%', height: '300px' }}
-      >
+      <div className="aspect-square w-full overflow-hidden rounded-md">
         <video
           src="/assets/videos/jesus2.mp4"
           autoPlay
@@ -44,15 +38,12 @@ export const cards = [
     title: 'Jogos',
     description: 'Aprenda brincando com jogos bíblicos divertidos.',
     header: (
-      <div
-        className="overflow-hidden rounded-md"
-        style={{ width: '100%', height: '300px' }}
-      >
+      <div className="aspect-square w-full overflow-hidden rounded-md">
         <Image
-          src="/assets/images/Jogos.png"
+          src="/assets/images/jogos.png"
           alt="Jogos Bíblicos"
           width={400}
-          height={300}
+          height={400}
           className="w-full h-full object-fill rounded-md"
         />
       </div>
@@ -63,15 +54,12 @@ export const cards = [
     title: 'Oração',
     description: 'Encontre um espaço para falar com Deus.',
     header: (
-      <div
-        className="overflow-hidden rounded-md"
-        style={{ width: '100%', height: '300px' }}
-      >
+      <div className="aspect-square w-full overflow-hidden rounded-md">
         <Image
           src="/assets/images/homeimg1.png"
           alt="Momento de Oração"
           width={400}
-          height={300}
+          height={400}
           className="w-full h-full object-fill rounded-md"
         />
       </div>
