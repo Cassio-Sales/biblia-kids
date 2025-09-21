@@ -5,7 +5,7 @@ export const cards = [
     title: 'Histórias',
     description: 'Explore as histórias bíblicas interativas.',
     header: (
-      <div className="aspect-square w-full overflow-hidden rounded-md">
+      <div className="w-full aspect-square min-h-[200px] overflow-hidden rounded-md">
         <Image
           src="/assets/images/noe.png"
           alt="História de Noé"
@@ -21,7 +21,7 @@ export const cards = [
     title: 'Versículo do Dia',
     description: 'Receba uma palavra inspiradora diariamente.',
     header: (
-      <div className="aspect-square w-full overflow-hidden rounded-md">
+      <div className="w-full aspect-square min-h-[200px] overflow-hidden rounded-md">
         <video
           src="/assets/videos/jesus2.mp4"
           autoPlay
@@ -38,7 +38,7 @@ export const cards = [
     title: 'Jogos',
     description: 'Aprenda brincando com jogos bíblicos divertidos.',
     header: (
-      <div className="aspect-square w-full overflow-hidden rounded-md">
+      <div className="w-full aspect-square min-h-[200px] overflow-hidden rounded-md">
         <Image
           src="/assets/images/jogos.png"
           alt="Jogos Bíblicos"
@@ -54,7 +54,7 @@ export const cards = [
     title: 'Oração',
     description: 'Encontre um espaço para falar com Deus.',
     header: (
-      <div className="aspect-square w-full overflow-hidden rounded-md">
+      <div className="w-full aspect-square min-h-[200px] overflow-hidden rounded-md">
         <Image
           src="/assets/images/homeimg1.png"
           alt="Momento de Oração"
