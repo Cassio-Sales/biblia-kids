@@ -60,7 +60,7 @@ export const TypewriterEffect: React.FC<TypewriterProps> = ({
               {char}
             </motion.span>
           ))}
-          &nbsp; {/* garante espaço entre palavras */}
+          &nbsp; {/* espaço entre palavras */}
         </span>
       ))}
     </motion.div>
