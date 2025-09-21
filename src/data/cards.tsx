@@ -7,7 +7,7 @@ export const cards = [
     header: (
       <div className="w-full aspect-square min-h-[200px] overflow-hidden rounded-md">
         <Image
-          src="/assets/images/noe.png"
+          src="/assets/images/Noe.png"
           alt="História de Noé"
           width={400}
           height={400}
@@ -40,7 +40,7 @@ export const cards = [
     header: (
       <div className="w-full aspect-square min-h-[200px] overflow-hidden rounded-md">
         <Image
-          src="/assets/images/jogos.png"
+          src="/assets/images/Jogos.png"
           alt="Jogos Bíblicos"
           width={400}
           height={400}
