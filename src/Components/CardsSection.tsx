@@ -1,7 +1,7 @@
 'use client'
 
 import { BentoGrid, BentoGridItem } from './ui/BentoGrid'
-import { cards } from '../data/cards' // ajuste o path conforme sua estrutura
+import { cards } from '../data/cards' 
 
 const CardsSection = () => {
   return (
