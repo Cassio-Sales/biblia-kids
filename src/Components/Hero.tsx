@@ -155,7 +155,7 @@ const Hero = () => {
       className: 'text-[#40A099] font-bold'
     }
   ]}
-  className="text-center text-2xl"
+  className="text-center text-1xl"
 />
 
     </section>
