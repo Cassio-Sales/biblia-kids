@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { useRef } from 'react'
 import { Baloo_2 } from 'next/font/google'
 import { TextGenerateEffect } from './ui/TextGenerateEffect'
 import { TypewriterEffect } from './ui/Typewriter'
@@ -11,8 +12,12 @@ const baloo = Baloo_2({ subsets: ['latin'], weight: ['700'] })
 export default function Hero() {
   const { data: versiculo, loading, error } = useDailyVerse()
 
+  // Referência para a seção da Bíblia
+  const bibleSectionRef = useRef<HTMLDivElement | null>(null)
+
+  // Ao clicar no botão, rola suavemente até a Bíblia
   const handleStart = () => {
-    console.log('Entrar clicado')
+    bibleSectionRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -48,7 +53,10 @@ export default function Hero() {
       </div>
 
       {/* Seção da Bíblia com título e versículo */}
-      <div className="relative w-full h-[70vh] overflow-hidden flex flex-col items-center justify-center">
+      <div
+        ref={bibleSectionRef}
+        className="relative w-full h-[70vh] overflow-hidden flex flex-col items-center justify-center"
+      >
         <Image
           src="/assets/images/bibliatemplate.png"
           alt="Bíblia aberta"
@@ -59,13 +67,11 @@ export default function Hero() {
 
         {/* Texto sobreposto */}
         <div className="absolute flex flex-col items-center text-center px-6 w-full h-full justify-center">
-          {/* Título centralizado e proporcional */}
           <TextGenerateEffect
-            className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#D97706] mb-4"
+            className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#8b5e3c] mb-4"
             words="Versículo do Dia"
           />
 
-          {/* Texto do versículo centralizado */}
           <TypewriterEffect
             words={[
               {
