@@ -62,7 +62,7 @@ export default function Hero() {
           alt="Bíblia aberta"
           fill
           priority
-          className="object-cover w-full h-full scale-90 object-center"
+          className="object-cover w-full h-full scale-96 object-center"
         />
 
         {/* Texto sobreposto */}
