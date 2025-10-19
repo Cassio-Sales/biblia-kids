@@ -31,7 +31,7 @@ export default function Hero() {
       {/* Conteúdo abaixo da imagem */}
       <div className="px-4 py-6 flex flex-col items-center">
         <TextGenerateEffect
-          className="text-center text-6xl font-bold mb-4 text-[#D97706]"
+          className="text-center text-5xl font-bold mb-4 text-[#D97706]"
           words="Bem-Vindo!"
         />
 
@@ -40,7 +40,7 @@ export default function Hero() {
             onClick={handleStart}
             className={`${baloo.className} bg-[#40A099] text-white px-4 py-2 rounded-full shadow-lg hover:bg-amber-600 transition`}
           >
-            <span className="text-3xl font-bold tracking-wide">
+            <span className="text-2xl font-bold tracking-wide">
               COMEÇAR LEITURA
             </span>
           </button>
@@ -54,17 +54,18 @@ export default function Hero() {
           alt="Bíblia aberta"
           fill
           priority
-          className="object-cover w-full h-full scale-125 object-center"
+          className="object-cover w-full h-full scale-90 object-center"
         />
 
         {/* Texto sobreposto */}
         <div className="absolute flex flex-col items-center text-center px-6 w-full h-full justify-center">
-          {/* Título centralizado no meio */}
+          {/* Título centralizado e proporcional */}
           <TextGenerateEffect
-            className="text-4xl font-bold text-[#8b5e3c] mb-6"
+            className="text-3xl sm:text-3xl md:text-4xl font-bold text-[#D97706] mb-4"
             words="Versículo do Dia"
           />
 
+          {/* Texto do versículo centralizado */}
           <TypewriterEffect
             words={[
               {
@@ -76,7 +77,7 @@ export default function Hero() {
                 className: 'text-[#8b5e3c] font-bold drop-shadow-lg'
               }
             ]}
-            className="text-center text-2xl sm:text-2xl md:text-3xl lg:text-3xl max-w-[65%] leading-snug break-words text-balance mx-auto"
+            className="text-center text-lg sm:text-xl md:text-2xl max-w-[70%] leading-snug break-words text-balance mx-auto"
           />
         </div>
       </div>
