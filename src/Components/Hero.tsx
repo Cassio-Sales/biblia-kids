@@ -152,7 +152,7 @@ const Hero = () => {
   words={[
     {
       text: versiculo || 'Carregando versículo...',
-      className: 'text-[#40A099] font-bold'
+      className: 'text-[#8b5e3c] font-bold'
     }
   ]}
   className="text-center text-1xl"
