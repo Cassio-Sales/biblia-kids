@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 export const cards = [
   {
+    id:'stories',
     title: 'Histórias',
     description: 'Explore as histórias bíblicas interativas.',
     header: (
@@ -18,6 +19,7 @@ export const cards = [
     icon: <span className="text-neutral-500">📖</span>
   },
   {
+    id: 'verses',
     title: 'Versículo do Dia',
     description: 'Receba uma palavra inspiradora diariamente.',
     header: (
@@ -35,6 +37,7 @@ export const cards = [
     icon: <span className="text-neutral-500">✨</span>
   },
   {
+    id: 'games',
     title: 'Jogos',
     description: 'Aprenda brincando com jogos bíblicos divertidos.',
     header: (
@@ -51,6 +54,7 @@ export const cards = [
     icon: <span className="text-neutral-500">🎮</span>
   },
   {
+    id: 'prayer',
     title: 'Oração',
     description: 'Encontre um espaço para falar com Deus.',
     header: (
