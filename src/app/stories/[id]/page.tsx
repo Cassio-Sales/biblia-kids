@@ -10,7 +10,7 @@ const stories = {
   'davi-golias': {
     title: 'Davi e Golias',
     pages: [
-      '/assets/stories/davi-golias/1.jpg',
+      '/assets/stories/davi-golias/1.png',
       '/assets/stories/davi-golias/2.jpg',
       '/assets/stories/davi-golias/3.jpg',
       '/assets/stories/davi-golias/4.jpg'
