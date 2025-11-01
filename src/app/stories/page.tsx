@@ -15,7 +15,7 @@ const stories = [
     id: 'davi-golias',
     title: 'Davi e Golias',
     description: 'Com fé em Deus, Davi vence o gigante Golias.',
-    image: '/assets/stories/davi-golias/capa.jpg'
+    image: '/assets/stories/davi-golias/capa.png'
   },
   {
     id: 'criacao',
