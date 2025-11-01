@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 
 const baloo = Baloo_2({
   subsets: ['latin'],
-  weight: ['400', '500', '700'] // pode ajustar pesos
+  weight: ['400', '500', '700'] 
 })
 
 export const metadata: Metadata = {
