@@ -5,7 +5,7 @@ import { useState } from 'react'
 import StoryBook from '../../../Components/ui/StoryBook'
 import { TypewriterEffect } from '../../../Components/ui/Typewriter'
 
-// Dicionário de histórias
+// 📘 Dicionário de histórias
 const stories = {
   'davi-golias': {
     title: 'Davi e Golias',
@@ -30,24 +30,34 @@ export default function StoryPage() {
   const story = stories[id as keyof typeof stories]
   const [current, setCurrent] = useState(0)
 
+  // ✨ Estado que força o React a recriar o texto quando a página vira
+  const [textTrigger, setTextTrigger] = useState(0)
+
   if (!story) return <p>História não encontrada.</p>
+
+  // ✨ Função chamada toda vez que o usuário vira uma página
+  const handlePageChange = (page: number) => {
+    setCurrent(page) // atualiza a página atual
+    setTextTrigger(prev => prev + 1) // força o Typewriter a reiniciar
+  }
 
   return (
     <main className="min-h-screen bg-white flex flex-col items-center py-8">
+      {/* Título da história */}
       <h1 className="text-3xl md:text-5xl font-bold text-[#D97706] mb-6 text-center">
         {story.title}
       </h1>
 
-      {/* Livro de páginas */}
+      {/* Livro de páginas com evento de virada */}
       <div className="w-full flex justify-center">
         <StoryBook
           pages={story.pages}
-          onPageChange={page => setCurrent(page)}
+          onPageChange={handlePageChange} //  Agora o texto reage à virada da página
         />
       </div>
 
-      {/* Texto narrado */}
-      <div className="mt-6 px-4 text-center max-w-md">
+      {/* Texto narrado que reinicia a animação em cada página */}
+      <div key={textTrigger} className="mt-6 px-4 text-center max-w-md">
         <TypewriterEffect
           words={[{ text: story.texts[current], className: 'text-[#40A099]' }]}
           className="text-xl md:text-2xl"
