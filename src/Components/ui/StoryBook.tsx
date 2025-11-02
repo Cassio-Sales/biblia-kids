@@ -92,16 +92,16 @@ interface PageProps {
 const Page = React.forwardRef<HTMLDivElement, PageProps>(
   ({ image, subtitle, text, index }, ref) => {
     const textRef = useRef<HTMLDivElement>(null)
-    const [fontSize, setFontSize] = useState<number>(14)
+    const [fontSize, setFontSize] = useState<number>(16.1) // +15%
 
     useEffect(() => {
       const adjustFont = () => {
         const el = textRef.current
         const parent = el?.parentElement
         if (!el || !parent) return
-        let size = 14
+        let size = 16.1
         el.style.fontSize = `${size}px`
-        while (el.scrollHeight > parent.clientHeight && size > 10) {
+        while (el.scrollHeight > parent.clientHeight && size > 11.5) {
           size -= 0.5
           el.style.fontSize = `${size}px`
         }
