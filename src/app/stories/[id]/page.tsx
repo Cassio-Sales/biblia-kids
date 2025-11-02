@@ -1,12 +1,17 @@
 'use client'
 
 import { useParams } from 'next/navigation'
-import { useState } from 'react'
+import { useState, type ReactElement } from 'react'
 import StoryBook from '../../../Components/ui/StoryBook'
-import { TypewriterEffect } from '../../../Components/ui/Typewriter'
 
-// 📘 Dicionário de histórias
-const stories = {
+interface Story {
+  title: string
+  pages: string[]
+  subtitles: string[]
+  texts: string[]
+}
+
+const stories: Record<string, Story> = {
   'davi-golias': {
     title: 'Davi e Golias',
     pages: [
@@ -15,52 +20,54 @@ const stories = {
       '/assets/stories/davi-golias/3.jpg',
       '/assets/stories/davi-golias/4.jpg'
     ],
+    subtitles: [
+      'O Vale da Batalha',
+      'O Jovem Pastor',
+      'A Pedra e a Funda',
+      'A Vitória do Senhor'
+    ],
     texts: [
-      'O exército de Israel estava com medo do gigante Golias.',
-      'Mas Davi confiava que Deus era mais forte que qualquer inimigo.',
-      'Com apenas uma pedra e uma funda, ele derrotou o gigante.',
-      'Deus abençoou Davi por sua fé e coragem!'
+      `Os israelitas e os filisteus estavam em dois montes, com um vale entre eles. Todos os dias, um gigante chamado Golias saía do acampamento filisteu.Ele era enorme, usava armadura brilhante e uma lança pesada como um tronco.
+
+
+
+Golias gritava: “Mandem um homem para lutar comigo! Se ele vencer, seremos seus servos.
+Mas se eu vencer, vocês servirão a nós!” Durante quarenta dias, ele fez isso — e ninguém teve coragem de enfrentá-lo.`,
+
+      `Mas Davi, ainda jovem, confiava em Deus.
+Ele sabia que o Senhor é mais forte que qualquer inimigo, e não teve medo do gigante.`,
+
+      `Com apenas uma pedra e uma funda, Davi derrotou Golias.
+Todos ficaram admirados com a coragem daquele menino.`,
+
+      `Deus abençoou Davi por sua fé.
+Assim, o povo de Israel venceu e louvou o Senhor por Sua fidelidade!`
     ]
   }
-  // outras histórias podem ser adicionadas aqui
 }
 
-export default function StoryPage() {
-  const { id } = useParams()
-  const story = stories[id as keyof typeof stories]
-  const [current, setCurrent] = useState(0)
-
-  // ✨ Estado que força o React a recriar o texto quando a página vira
-  const [textTrigger, setTextTrigger] = useState(0)
+export default function StoryPage(): ReactElement {
+  const params = useParams<{ id: string }>()
+  const id = params.id
+  const story = stories[id]
+  const [current, setCurrent] = useState<number>(0)
 
   if (!story) return <p>História não encontrada.</p>
 
-  // ✨ Função chamada toda vez que o usuário vira uma página
-  const handlePageChange = (page: number) => {
-    setCurrent(page) // atualiza a página atual
-    setTextTrigger(prev => prev + 1) // força o Typewriter a reiniciar
-  }
-
   return (
-    <main className="min-h-screen bg-white flex flex-col items-center py-8">
-      {/* Título da história */}
-      <h1 className="text-3xl md:text-5xl font-bold text-[#D97706] mb-6 text-center">
+    <main className="min-h-screen bg-[#fdfaf3] flex flex-col items-center py-6">
+      {/* 🏷️ Título principal */}
+      <h1 className="text-2xl md:text-4xl font-bold text-[#D97706] mb-3 text-center leading-tight px-3">
         {story.title}
       </h1>
 
-      {/* Livro de páginas com evento de virada */}
+      {/* 📖 Livro interativo */}
       <div className="w-full flex justify-center">
         <StoryBook
           pages={story.pages}
-          onPageChange={handlePageChange} //  Agora o texto reage à virada da página
-        />
-      </div>
-
-      {/* Texto narrado que reinicia a animação em cada página */}
-      <div key={textTrigger} className="mt-6 px-4 text-center max-w-md">
-        <TypewriterEffect
-          words={[{ text: story.texts[current], className: 'text-[#40A099]' }]}
-          className="text-xl md:text-2xl"
+          subtitles={story.subtitles}
+          texts={story.texts}
+          onPageChange={setCurrent}
         />
       </div>
     </main>

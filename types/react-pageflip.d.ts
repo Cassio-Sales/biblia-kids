@@ -19,6 +19,11 @@ declare module 'react-pageflip' {
     style?: CSSProperties
     onFlip?: (e: PageFlipEvent) => void
     children?: ReactNode
+
+    
+    drawShadow?: boolean
+    flippingTime?: number
+    useMouseEvents?: boolean
   }
 
   const HTMLFlipBook: ComponentType<HTMLFlipBookProps>
