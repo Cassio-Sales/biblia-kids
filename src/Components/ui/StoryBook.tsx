@@ -1,68 +1,69 @@
 'use client'
 
-import HTMLFlipBookOriginal from 'react-pageflip'
 import React, {
   useRef,
   useEffect,
   useState,
   type FC,
-  type ReactElement,
-  type PropsWithChildren
+  type ReactElement
 } from 'react'
+import HTMLFlipBook from 'react-pageflip'
 
-interface HTMLFlipBookPropsManual {
-  width: number
-  height: number
-  minWidth?: number
-  maxWidth?: number
-  minHeight?: number
-  maxHeight?: number
-  size?: 'fixed' | 'stretch'
-  drawShadow?: boolean
-  flippingTime?: number
-  usePortrait?: boolean
-  showCover?: boolean
-  mobileScrollSupport?: boolean
-  className?: string
-  style?: React.CSSProperties
-  onFlip?: (e: { data: number }) => void
+/**
+ * Tipagem manual do evento de flip
+ * conforme comportamento real do react-pageflip
+ */
+interface FlipEventCustom {
+  data: number
 }
 
-type ExtendedHTMLFlipBookProps = PropsWithChildren<HTMLFlipBookPropsManual>
-
-const HTMLFlipBook: FC<ExtendedHTMLFlipBookProps> = props => (
-  <HTMLFlipBookOriginal {...props} />
-)
-
+/**
+ * Props do StoryBook
+ */
 interface StoryBookProps {
   pages: string[]
   subtitles?: string[]
   texts?: string[]
-  onPageChange?: (page: number) => void
+  onPageChange?: (pageIndex: number) => void
 }
 
+/**
+ * Props de cada página
+ */
+interface PageProps {
+  image: string
+  subtitle?: string
+  text?: string
+  index: number
+}
+
+/**
+ * Componente principal do livro
+ */
 const StoryBook: FC<StoryBookProps> = ({
   pages,
   subtitles = [],
   texts = [],
   onPageChange
 }): ReactElement => {
+  const handleFlip = (e: FlipEventCustom): void => {
+    const currentPage = e.data
+    onPageChange?.(currentPage)
+  }
+
   return (
     <HTMLFlipBook
       width={340}
-      height={500}
+      height={600}
       minWidth={280}
       maxWidth={480}
       minHeight={400}
       maxHeight={650}
-      size="fixed"
-      className="mx-auto rounded-xl shadow-lg !bg-[#fdfaf3]"
-      mobileScrollSupport={true}
       showCover={false}
-      flippingTime={700}
-      drawShadow={true}
-      usePortrait={true}
-      onFlip={e => onPageChange?.(e.data)}
+      flippingTime={1300}
+      mobileScrollSupport={true}
+      className="mx-auto rounded-xl shadow-lg bg-[#fdfaf3]"
+      onFlip={handleFlip}
       style={{
         backgroundColor: '#fdfaf3',
         boxShadow: '0px 4px 16px rgba(0,0,0,0.25)',
@@ -82,24 +83,23 @@ const StoryBook: FC<StoryBookProps> = ({
   )
 }
 
-interface PageProps {
-  image: string
-  subtitle?: string
-  text?: string
-  index: number
-}
-
+/**
+ * Página individual
+ */
 const Page = React.forwardRef<HTMLDivElement, PageProps>(
   ({ image, subtitle, text, index }, ref) => {
-    const textRef = useRef<HTMLDivElement>(null)
-    const [fontSize, setFontSize] = useState<number>(16.1) // +15%
+    const textRef = useRef<HTMLDivElement | null>(null)
+    const [fontSize, setFontSize] = useState<number>(
+      typeof window !== 'undefined' && window.innerWidth < 768 ? 22 : 16
+    )
 
     useEffect(() => {
-      const adjustFont = () => {
+      const adjustFont = (): void => {
         const el = textRef.current
         const parent = el?.parentElement
         if (!el || !parent) return
-        let size = 16.1
+
+        let size = 16
         el.style.fontSize = `${size}px`
         while (el.scrollHeight > parent.clientHeight && size > 11.5) {
           size -= 0.5
@@ -107,19 +107,20 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
         }
         setFontSize(size)
       }
+
       adjustFont()
-      window.addEventListener('resize', adjustFont)
-      return () => window.removeEventListener('resize', adjustFont)
+      const handleResize = (): void => adjustFont()
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
     }, [text])
 
     return (
       <div
         ref={ref}
-        className="relative w-full h-full bg-[#fdfaf3] px-4 py-2 overflow-hidden"
+        className="relative w-full h-full bg-[#fdfaf3] px-4 overflow-hidden"
         style={{
           fontFamily: 'Georgia, serif',
-          color: '#8b5e3c',
-          display: 'block'
+          color: '#8b5e3c'
         }}
       >
         {/* imagem (40%) */}
@@ -128,6 +129,7 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
             src={image}
             alt={`Página ${index + 1}`}
             className="w-full h-full object-cover rounded-md"
+            loading="lazy"
           />
         </div>
 
@@ -146,11 +148,12 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
         {/* texto (50%) */}
         {text && (
           <div
-            className="absolute bottom-0 left-0 w-full px-4 pb-3 flex justify-center items-center"
+            className="absolute bottom-0 left-0 w-full px-4 pb-0 flex justify-center items-center"
             style={{
               height: '50%',
               overflow: 'hidden',
-              backgroundColor: '#fdfaf3'
+              backgroundColor: '#fdfaf3',
+              color: '#8b5e3c'
             }}
           >
             <div
@@ -158,7 +161,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
               className="leading-relaxed h-full w-full overflow-hidden"
               style={{
                 fontSize: `${fontSize}px`,
-                color: '#8b5e3c',
                 lineHeight: '1.6',
                 letterSpacing: '0.25px',
                 textAlign: 'justify',
@@ -167,8 +169,8 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
             >
               {text
                 .split(/\n+/)
-                .filter(p => p.trim() !== '')
-                .map((paragraph, idx) => (
+                .filter((p: string) => p.trim() !== '')
+                .map((paragraph: string, idx: number) => (
                   <p
                     key={idx}
                     style={{

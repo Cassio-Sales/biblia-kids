@@ -27,7 +27,8 @@ const stories: Record<string, Story> = {
       'A Vitória do Senhor'
     ],
     texts: [
-      `Os israelitas e os filisteus estavam em dois montes, com um vale entre eles. Todos os dias, um gigante chamado Golias saía do acampamento filisteu.Ele era enorme, usava armadura brilhante e uma lança pesada como um tronco.
+      `Os israelitas e os filisteus estavam em dois montes, com um vale entre eles.
+      Todos os dias, um gigante chamado Golias saía do acampamento filisteu. Ele era enorme, usava armadura brilhante e uma lança pesada como um tronco.
 
 
 
