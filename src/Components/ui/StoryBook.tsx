@@ -135,18 +135,27 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
       adjustFont()
     }, [text, adjustFont])
 
-    // ② Recalcula quando a página fica visível (após o flip terminar)
+    // ② Recalcula quando a página fica visível (com o efeito do flip)
     useEffect(() => {
       if (!isVisible) return
-      const id = setTimeout(() => {
+
+      // Chama no meio e no fim da animação para ver o “reencaixe”
+      const mid = setTimeout(() => {
         adjustFont()
-      }, Math.max(0, flippingTime - 50)) // espera a animação acabar
-      return () => clearTimeout(id)
+      }, flippingTime / 2)
+
+      const end = setTimeout(() => {
+        adjustFont()
+      }, Math.max(0, flippingTime - 50))
+
+      return () => {
+        clearTimeout(mid)
+        clearTimeout(end)
+      }
     }, [isVisible, flippingTime, adjustFont, currentPage])
 
     // ③ Recalcula quando a imagem carregar (altura útil pode mudar)
     const handleImageLoad = () => {
-      // espera o browser aplicar layout
       requestAnimationFrame(() => adjustFont())
     }
 
