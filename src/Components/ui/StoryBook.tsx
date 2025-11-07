@@ -97,32 +97,27 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
     const [fontSize, setFontSize] = useState<number>(18)
     const [lineHeight, setLineHeight] = useState<number>(1.6)
 
-    // Página “visível” durante o flip: a atual e a próxima face
     const isVisible = index === currentPage || index === currentPage + 1
 
-    /** Ajuste com busca binária para caber com folga */
     const adjustFont = React.useCallback(() => {
       const el = textRef.current
       const parent = el?.parentElement
       if (!el || !parent) return
 
-      // reset base
       el.style.lineHeight = '1.6'
       setLineHeight(1.6)
 
-      const available = parent.clientHeight - 2 // folguinha
+      const available = parent.clientHeight - 2
       let low = MIN_FONT
       let high = Math.min(START_FONT, MAX_FONT)
       let best = high
 
-      // primeiro, tenta grande
       el.style.fontSize = `${high}px`
       if (el.scrollHeight <= available) {
         best = high
       } else {
-        // busca binária para achar o maior que caiba
         while (low <= high) {
-          const mid = Math.floor(((low + high) / 2) * 10) / 10 // passos de 0.1
+          const mid = Math.floor(((low + high) / 2) * 10) / 10
           el.style.fontSize = `${mid}px`
           if (el.scrollHeight <= available) {
             best = mid
@@ -133,7 +128,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
         }
       }
 
-      // “Texto muito longo”: se o ajuste precisou reduzir mais de 4px
       if (START_FONT - best > 4) {
         const tweaked = Math.max(best - 0.5, MIN_FONT)
         el.style.fontSize = `${tweaked}px`
@@ -142,27 +136,24 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
         el.style.lineHeight = '1.58'
       }
 
-      // “Texto muito curto”: se ocupa menos de 50% da área, diminui 1.5px só
       if (el.scrollHeight < available * 0.5) {
         const shorter = Math.max(best - 1.5, MIN_FONT + 1)
         el.style.fontSize = `${shorter}px`
         best = shorter
       }
 
-      // Garante teto agradável
       if (best > MAX_FONT) {
         best = MAX_FONT
         el.style.fontSize = `${best}px`
       }
 
-      // 🔹 Reduz 2% o tamanho final (pequeno ajuste global)
-      best = best * 0.98
+      // 🔹 Aumenta 2% o tamanho final (ajuste invertido)
+      best = best * 1.02
       el.style.fontSize = `${best}px`
 
       setFontSize(best)
     }, [])
 
-    // ① Recalcula em mount + quando o texto muda
     useLayoutEffect(() => {
       if (!text) return
       requestAnimationFrame(() => {
@@ -170,21 +161,18 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
       })
     }, [text, adjustFont])
 
-    // ② Recalcula quando a página fica visível (após a animação de flip)
     useEffect(() => {
       if (!isVisible) return
       const id = setTimeout(() => {
         adjustFont()
-      }, Math.max(0, flippingTime - 40)) // sincroniza com a animação
+      }, Math.max(0, flippingTime - 40))
       return () => clearTimeout(id)
     }, [isVisible, flippingTime, adjustFont, currentPage])
 
-    // ③ Recalcula quando a imagem carregar (altura útil pode mudar)
     const handleImageLoad = () => {
       requestAnimationFrame(() => adjustFont())
     }
 
-    // ④ Observa mudanças de tamanho do container do texto
     useEffect(() => {
       const el = textRef.current
       const parent = el?.parentElement
@@ -194,7 +182,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
       return () => ro.disconnect()
     }, [adjustFont])
 
-    // ⑤ Reajuste adicional para a PRIMEIRA página
     useEffect(() => {
       if (index !== 0) return
       const t1 = setTimeout(adjustFont, 0)
@@ -216,7 +203,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
           color: '#8b5e3c'
         }}
       >
-        {/* imagem (40%) */}
         <div className="relative w-full h-[40%] rounded-md overflow-hidden shadow-sm">
           <img
             src={image}
@@ -227,7 +213,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
           />
         </div>
 
-        {/* título (10%) */}
         {subtitle && (
           <div
             className="flex items-center justify-center w-full h-[10%] mt-1"
@@ -242,7 +227,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
           </div>
         )}
 
-        {/* texto (48%) */}
         {text && (
           <div
             className="absolute bottom-0 left-0 w-full px-5 pb-3 flex justify-center items-center"
@@ -270,7 +254,6 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
           </div>
         )}
 
-        {/* número da página */}
         <div className="absolute bottom-1 right-3 text-[10px] sm:text-xs text-gray-500">
           {index + 1}
         </div>
