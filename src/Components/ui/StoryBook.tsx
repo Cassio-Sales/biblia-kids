@@ -107,7 +107,7 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
 
       // 1) Diminui até caber (páginas longas continuam iguais)
       while (el.scrollHeight > parent.clientHeight && size > minSize) {
-        size -= 0.5
+        size -= 0.4
         el.style.fontSize = `${size}px`
       }
 
