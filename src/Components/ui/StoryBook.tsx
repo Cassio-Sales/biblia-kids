@@ -107,7 +107,7 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
 
       // 1) Diminui até caber (páginas longas continuam iguais)
       while (el.scrollHeight > parent.clientHeight && size > minSize) {
-        size -= 0.4
+        size -= 0.3
         el.style.fontSize = `${size}px`
       }
 
@@ -159,7 +159,7 @@ const Page = React.forwardRef<HTMLDivElement, PageProps>(
       requestAnimationFrame(() => adjustFont())
     }
 
-    // ④ Observa mudanças de tamanho do container do texto (mais confiável que window.resize)
+    // ④ Observa mudanças de tamanho do container do texto 
     useEffect(() => {
       const el = textRef.current
       const parent = el?.parentElement
