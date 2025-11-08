@@ -51,7 +51,7 @@ const StoryBook: FC<StoryBookProps> = ({
   return (
     <HTMLFlipBook
       width={340}
-      height={600}
+      height={610}
       minWidth={280}
       maxWidth={480}
       minHeight={400}
