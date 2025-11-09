@@ -29,10 +29,7 @@ const stories: Record<string, Story> = {
       '/assets/stories/davi-golias/12.png',
       '/assets/stories/davi-golias/13.png',
       '/assets/stories/davi-golias/14.png',
-      '/assets/stories/davi-golias/15.png',
-      '/assets/stories/davi-golias/16.png',
-      '/assets/stories/davi-golias/17.png',
-      '/assets/stories/davi-golias/18.png'
+      '/assets/stories/davi-golias/15.png'
     ],
     subtitles: [
       'O Vale da Batalha',
@@ -49,23 +46,24 @@ const stories: Record<string, Story> = {
       'A Alegria de Israel',
       'Davi diante do Rei',
       'O Novo Amigo',
-      'Um Servo de Deus em Israel',
-      'O Ciúme do Rei',
-      'O Coração de Davi',
       'A Grande Lição'
     ],
     texts: [
       `Os israelitas e os filisteus estavam em dois montes, com um vale entre eles.
-      Todos os dias, um gigante chamado Golias saía do acampamento filisteu.
-      Ele era enorme, usava armadura brilhante e uma lança pesada como um tronco.
-      Golias gritava: “Mandem um homem para lutar comigo! Se ele vencer, seremos seus servos.
-      Mas se eu vencer, vocês servirão a nós!” Durante quarenta dias, ele fez isso e ninguém teve coragem de enfrentá-lo.`,
 
-      `Em Belém vivia um menino chamado Davi.
-      Ele era o filho mais novo de Jessé e cuidava das ovelhas do seu pai.
+      Todos os dias, um gigante chamado Golias saía do acampamento filisteu. Ele era enorme, usava armadura brilhante e uma lança pesada como um tronco.
+
+      Golias gritava: “Mandem um homem para lutar comigo! Se ele vencer, seremos seus servos. Mas se eu vencer, vocês servirão a nós!” 
+      
+      Durante quarenta dias, ele fez isso e ninguém teve coragem de enfrentá-lo.`,
+
+      `Em Belém vivia um menino chamado Davi. Ele era o filho mais novo de Jessé e cuidava das ovelhas do seu pai.
+      
       Enquanto apascentava, Davi tocava harpa e cantava cânticos para Deus.
-      Às vezes, enfrentava animais perigosos, mas sempre confiava que o Senhor o protegeria.
-      Seu coração era pequeno em tamanho, mas grande em fé.`,
+      
+      Às vezes, enfrentava animais perigosos, mas sempre confiava que o Senhor o protegeria. 
+      
+      Embora ainda fosse muito jovem, sua fé era enorme.`,
 
       `Um dia, Jessé chamou Davi e disse:
       “Leve estes pães e grãos para seus irmãos no campo de batalha e veja se eles estão bem.”
@@ -92,11 +90,9 @@ const stories: Record<string, Story> = {
       “Você é só um menino, e ele é um guerreiro desde a juventude.”
       Mas Davi contou suas experiências como pastor, quando lutou contra um leão e um urso.`,
 
-      `“Quando o leão veio pegar uma ovelha,” contou Davi,
-      “eu corri atrás dele e o matei. O mesmo fiz com o urso.”
+      `“Quando um leão tentou pegar uma ovelha”, disse Davi, “eu o enfrentei e protegi o rebanho. E fiz o mesmo quando um urso apareceu”.
       “Deus me salvou dessas feras, e Ele também me salvará desse gigante.”
-      O rei Saul ficou impressionado e disse:
-      “Vá, e que o Senhor esteja com você.”`,
+      O rei Saul ficou impressionado e disse: “Vá, e que o Senhor esteja com você.”`,
 
       `O rei Saul colocou sua armadura em Davi: um capacete de bronze e uma couraça de ferro.
       Mas Davi tentou andar e quase caiu, era tudo muito pesado!
@@ -142,31 +138,14 @@ const stories: Record<string, Story> = {
       como sinal de aliança e confiança.
       Era o começo de uma amizade fiel que duraria por toda a vida.`,
 
-      `Davi começou a lutar nas batalhas de Israel.
-      E em todas, o Senhor o ajudava a vencer.
-      As pessoas cantavam pelas ruas:
-      “Saul matou milhares, mas Davi, dezenas de milhares!”
-      Davi não buscava glória, apenas servia a Deus e ao seu povo.`,
+      `Davi era pequeno aos olhos das pessoas,
+      mas cheio de fé e coragem.
 
-      `Quando Saul ouviu o povo cantar sobre Davi,
-      ficou com inveja e medo.
-      Ele percebeu que Deus estava com Davi,
-      e seu coração se encheu de raiva.
-      Mesmo assim, Davi continuou servindo com humildade e tocando harpa para o rei.`,
+      Antes de enfrentar o gigante Golias,
+      Deus já tinha ajudado Davi a vencer um leão e um urso para proteger as ovelhas do seu pai.
 
-      `Às vezes, o rei tentava feri-lo,
-      mas Davi se afastava e nunca revidava.
-      Ele sabia que Deus tinha planos maiores.
-      Mesmo perseguido, Davi mantinha o coração puro
-      e esperava o tempo certo que o Senhor havia preparado para ele.`,
-
-      `Davi era pequeno aos olhos dos homens,
-      mas gigante na fé e na coragem.
-      Ele mostrou que Deus não precisa de força nem de espada,
-      precisa de corações dispostos e confiantes.
-      Assim como Davi venceu Golias,
-      nós também podemos vencer nossos medos
-      quando confiamos no Senhor de todo o coração.`
+      Davi sabia que a força verdadeira vem de Deus
+      e que Ele ajuda quem confia de todo o coração. Com fé e coragem, Davi venceu o gigante. E nós também podemos vencer nossos medos quando confiamos no Senhor.`
     ]
   }
 }
