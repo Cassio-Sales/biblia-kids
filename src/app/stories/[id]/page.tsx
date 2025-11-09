@@ -105,7 +105,7 @@ const stories: Record<string, Story> = {
       Ele confiava que a força de Deus era suficiente.`,
 
       `Davi caminhou até o riacho próximo ao vale.
-      Ajoelhou-se e escolheu cinco pedrinhas bem lisas.
+      Ajoelhou-se e escolheu três pedrinhas bem lisas.
       Guardou-as em sua bolsa de pastor e pegou sua funda, a mesma que usava para proteger as ovelhas.
       Com passos firmes, seguiu em direção ao gigante.`,
 
